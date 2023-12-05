@@ -17,7 +17,7 @@ function onSearch(event) {
   );
 }
 
-const BASE_URL = "http://api.weatherapi.com/v1/forecast.json";
+const BASE_URL = "https://api.weatherapi.com/v1/forecast.json";
 const KEY = "557cff91c3e64c23afa215730230412";
 
 function forecastApi(city = "rivne", days = 7) {
