@@ -1,0 +1,14 @@
+.js-search {
+  font-size: 20px;
+  text-align: center;
+}
+
+.js-list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  border: 2px solid grey;
+  border-radius: 12px;
+}
