@@ -20,15 +20,30 @@ function onSearch(event) {
 const BASE_URL = "https://api.weatherapi.com/v1/forecast.json";
 const KEY = "557cff91c3e64c23afa215730230412";
 
-function forecastApi(city = "rivne", days = 7) {
-  return fetch(`${BASE_URL}?key=${KEY}&q=${city}&days=${days}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      return response.json();
-    })
-    .catch((error) => console.error(error));
+//  function forecastApi(city = "rivne", days = 7) {
+//   return fetch(`${BASE_URL}?key=${KEY}&q=${city}&days=${days}`)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error(response.statusText);
+//       }
+//       return response.json();
+//     })
+//     .catch((error) => console.error(error));
+// }
+
+async function forecastApi(city = "rivne", days = 7) {
+  try {
+    const response = await fetch(
+      `${BASE_URL}?key=${KEY}&q=${city}&days=${days}`
+    );
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 function createMarkup(arr) {
